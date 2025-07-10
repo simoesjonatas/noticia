@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.conf import settings
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from .serializers import NoticiaSerializer
@@ -23,9 +23,12 @@ class NoticiasPorTagView(generics.RetrieveAPIView):
     lookup_field = 'pk'
     # lookup_field = 'nome'
 
-
 class WebhookNoticiaView(APIView):
     def post(self, request):
+        token = request.headers.get("Authorization", "").replace("Bearer ", "")
+        if token != settings.WEBHOOK_SECRET_TOKEN:
+            return Response({"error": "Token inválido"}, status=status.HTTP_401_UNAUTHORIZED)
+
         processar_noticia_task.delay(request.data)
         return Response({'message': 'Notícia recebida e enviada para fila'}, status=status.HTTP_202_ACCEPTED)
 

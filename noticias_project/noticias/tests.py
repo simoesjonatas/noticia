@@ -34,7 +34,7 @@ def test_webhook_cria_noticia_completa():
             reverse("webhook-noticia"),
             data=payload,
             format="json",
-            # HTTP_AUTHORIZATION="Bearer supersecreto123"
+            HTTP_AUTHORIZATION="Bearer supersecreto123"
         )
 
     assert response.status_code == 202
