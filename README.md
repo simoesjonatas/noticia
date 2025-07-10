@@ -138,9 +138,10 @@ doc/
 A justificativa técnica completa está documentada em:
 
 ```
-doc/README_lambda_justificativa.md
+noticias_project/doc/README_lambda_justificativa.md
 ```
-[Justificativa Lambda](noticias_project/doc/doc/README_lambda_justificativa.md)
+Ou no link abaixo:
+[Justificativa Lambda](noticias_project/doc/README_lambda_justificativa.md)
 
 [Evidências Visuais](noticias_project/doc/README_imagens.md)
 
