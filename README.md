@@ -140,3 +140,4 @@ A justificativa técnica completa está documentada em:
 ```
 doc/README_lambda_justificativa.md
 ```
+📎 Veja também: [Evidências Visuais](noticias_project/doc/README_imagens.md)
