@@ -68,21 +68,6 @@ services:
       - pgdata:/var/lib/postgresql/data
     networks:
       - noticias_net
-  
-  # flower:
-  #   image: mher/flower
-  #   container_name: flower_dashboard
-  #   working_dir: /app
-  #   volumes:
-  #     - ../:/app
-  #   command: celery -A noticias_project flower --port=5555 --broker=redis://redis:6379/0
-  #   ports:
-  #     - "5555:5555"
-  #   depends_on:
-  #     - redis
-  #     - celery
-  #   networks:
-  #     - noticias_net
 
   flower:
     build:
