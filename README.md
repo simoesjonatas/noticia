@@ -35,7 +35,7 @@ Criar um sistema capaz de:
 
 ```bash
 # Subir o ambiente
-cd docker
+cd noticias_project/docker
 docker-compose up --build
 ```
 
@@ -89,7 +89,7 @@ DB_HOST=db
 - ✅ Monitoramento com Flower
 - ✅ Testes automatizados com Pytest
 - ✅ Swagger (OpenAPI 3.0)
-- ✅ Justificativa técnica para não usar Lambda diretamente (ver `/doc/README_lambda_justificativa.md`)
+- ✅ Justificativa técnica para não usar Lambda diretamente (ver `noticias_project/doc/README_lambda_justificativa.md`)
 
 ---
 
@@ -143,3 +143,16 @@ doc/README_lambda_justificativa.md
 [Justificativa Lambda](noticias_project/doc/doc/README_lambda_justificativa.md)
 
 [Evidências Visuais](noticias_project/doc/README_imagens.md)
+
+
+## 🔐 Melhorias de Segurança Possíveis
+
+Para fins de POC, foi implementado um token simples no header do webhook.
+
+Em ambiente de produção teriamos que implementar:
+
+- Autenticação protegida por OAuth2 ou JWT
+- Rate limiting e bloqueio de IPs suspeitos
+- Logs de auditoria de requisições sensíveis
+- Validação da origem do Webhook
+- Isolamento de variáveis sensíveis via `.env` ou secrets manager
